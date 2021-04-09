@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:line_icons/line_icon.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
+import 'package:qr_event/screens/pages/filter_events.dart';
 import 'package:qr_event/screens/pages/home.dart';
 import 'package:qr_event/screens/pages/eventlist.dart';
 
@@ -19,7 +20,7 @@ class _DashboardState extends State<Dashboard> {
     return [
       Home(),
       EventList(),
-      Home(),
+      FilterEvents(),
     ];
   }
 

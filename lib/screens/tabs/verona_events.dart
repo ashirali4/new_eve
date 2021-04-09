@@ -1,89 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:line_icons/line_icons.dart';
-class EventList extends StatefulWidget {
-
-
-
+class Verona_Parties extends StatefulWidget {
   @override
-  _DestinationScreenState createState() => _DestinationScreenState();
+  _Milan_PartiesState createState() => _Milan_PartiesState();
 }
-List<Activity> activities = [
-  Activity(
-    imageUrl: 'assets/images/stmarksbasilica.jpg',
-    name: 'St. Mark\'s Basilica',
-    type: 'Sightseeing Tour',
-    startTimes: ['9:00 am', '11:00 am'],
-    rating: 5,
-    price: 30,
-  ),
-  Activity(
-    imageUrl: 'assets/images/gondola.jpg',
-    name: 'Walking Tour and Gonadola Ride',
-    type: 'Sightseeing Tour',
-    startTimes: ['11:00 pm', '1:00 pm'],
-    rating: 4,
-    price: 210,
-  ),
-  Activity(
-    imageUrl: 'assets/images/murano.jpg',
-    name: 'Murano and Burano Tour',
-    type: 'Sightseeing Tour',
-    startTimes: ['12:30 pm', '2:00 pm'],
-    rating: 3,
-    price: 125,
-  ),
-];
-class _DestinationScreenState extends State<EventList> {
-  Text _buildRatingStars(int rating) {
-    String stars = '';
-    for (int i = 0; i < rating; i++) {
-      stars += '⭐ ';
-    }
-    stars.trim();
-    return Text(stars);
-  }
 
-
-  List<Destination> destinations = [
-    Destination(
-      imageUrl: 'assets/images/venice.jpg',
-      city: 'Venice',
-      country: 'Italy',
-      description: 'Visit Venice for an amazing and unforgettable adventure.',
-      activities: activities,
-    ),
-    Destination(
-      imageUrl: 'assets/images/paris.jpg',
-      city: 'Paris',
-      country: 'France',
-      description: 'Visit Paris for an amazing and unforgettable adventure.',
-      activities: activities,
-    ),
-    Destination(
-      imageUrl: 'assets/images/newdelhi.jpg',
-      city: 'New Delhi',
-      country: 'India',
-      description: 'Visit New Delhi for an amazing and unforgettable adventure.',
-      activities: activities,
-    ),
-    Destination(
-      imageUrl: 'assets/images/saopaulo.jpg',
-      city: 'Sao Paulo',
-      country: 'Brazil',
-      description: 'Visit Sao Paulo for an amazing and unforgettable adventure.',
-      activities: activities,
-    ),
-    Destination(
-      imageUrl: 'assets/images/newyork.jpg',
-      city: 'New York City',
-      country: 'United States',
-      description: 'Visit New York for an amazing and unforgettable adventure.',
-      activities: activities,
-    ),
-  ];
-
+class _Milan_PartiesState extends State<Verona_Parties> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -94,18 +17,18 @@ class _DestinationScreenState extends State<EventList> {
 
           Padding(
             padding: const EdgeInsets.all(15),
-            child: Text("All Events",
-            style: GoogleFonts.poppins(
-              fontSize: 21
-            ),),
+            child: Text("Verona Events",
+              style: GoogleFonts.poppins(
+                  fontSize: 21
+              ),),
           ),
           SizedBox(height: 1,),
           Expanded(
             child: ListView.builder(
               padding: EdgeInsets.only(top: 10.0, bottom: 15.0),
-              itemCount: destinations[0].activities.length,
+              itemCount: 4,
               itemBuilder: (BuildContext context, int index) {
-                Activity activity = destinations[0].activities[0];
+
                 return Stack(
                   children: <Widget>[
                     Container(
@@ -129,7 +52,7 @@ class _DestinationScreenState extends State<EventList> {
                                 Container(
                                   width: 200.0,
                                   child: Text(
-                                    "Ashir's Birthday",
+                                    "Verona Party ",
                                     style: GoogleFonts.poppins(
                                       fontSize: 16.0,
                                       fontWeight: FontWeight.w600,
@@ -141,17 +64,17 @@ class _DestinationScreenState extends State<EventList> {
 
                               ],
                             ),
-                           Row(
-                             children: [
-                               Icon(LineIcons.globe,size: 20,),
-                               Text(
-                                 "Location",
-                                 style: GoogleFonts.poppins(
-                                   color: Colors.grey,
-                                 ),
-                               ),
-                             ],
-                           ),
+                            Row(
+                              children: [
+                                Icon(LineIcons.globe,size: 20,),
+                                Text(
+                                  "Verona",
+                                  style: GoogleFonts.poppins(
+                                    color: Colors.grey,
+                                  ),
+                                ),
+                              ],
+                            ),
 
                             SizedBox(height: 08.0),
                             Row(
@@ -183,11 +106,11 @@ class _DestinationScreenState extends State<EventList> {
                                   child: Row(
                                     children: [
                                       Icon(LineIcons.bell,color: Colors.white,size: 20,),
-                                    Text(
-                                    "Add Reminder",
-                                    style: GoogleFonts.poppins(
-                                        color: Colors.white
-                                    ),)
+                                      Text(
+                                        "Add Reminder",
+                                        style: GoogleFonts.poppins(
+                                            color: Colors.white
+                                        ),)
                                     ],
                                   ),
                                 ),
@@ -206,9 +129,9 @@ class _DestinationScreenState extends State<EventList> {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(15.0),
                         child:  Container(
-                          width: 100.0,
-                           child:Image.asset("assets/york.jpg",
-                           fit: BoxFit.cover,)
+                            width: 100.0,
+                            child:Image.asset("assets/york.jpg",
+                              fit: BoxFit.cover,)
                         ),
                       ),
                     ),
@@ -222,37 +145,3 @@ class _DestinationScreenState extends State<EventList> {
     );
   }
 }
-class Activity {
-  String imageUrl;
-  String name;
-  String type;
-  List<String> startTimes;
-  int rating;
-  int price;
-
-  Activity({
-    this.imageUrl,
-    this.name,
-    this.type,
-    this.startTimes,
-    this.rating,
-    this.price,
-  });
-}
-
-class Destination {
-  String imageUrl;
-  String city;
-  String country;
-  String description;
-  List<Activity> activities;
-
-  Destination({
-    this.imageUrl,
-    this.city,
-    this.country,
-    this.description,
-    this.activities,
-  });
-}
-
