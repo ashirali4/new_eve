@@ -33,6 +33,7 @@ dependencies:
   persistent_bottom_nav_bar: ^4.0.2
   line_icons: ^2.0.1
   fdottedline: ^1.0.1
+  font_awesome_flutter: ^9.0.0
 
 
 

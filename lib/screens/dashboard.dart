@@ -5,6 +5,8 @@ import 'package:line_icons/line_icon.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:qr_event/screens/pages/home.dart';
+import 'package:qr_event/screens/pages/eventlist.dart';
+
 
 class Dashboard extends StatefulWidget {
   @override
@@ -16,7 +18,7 @@ class _DashboardState extends State<Dashboard> {
   List<Widget> _buildScreens() {
     return [
       Home(),
-      Home(),
+      EventList(),
       Home(),
     ];
   }
