@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qr_event/router.dart';
 import 'package:qr_event/screens/add_event.dart';
 import 'package:qr_event/screens/dashboard.dart';
 
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: Dashboard(),
+      onGenerateRoute: generateRoute,
     );
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:qr_event/screens/add_event.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -55,12 +56,12 @@ class _HomeState extends State<Home> {
                         Expanded(
                             child: Padding(
                           padding: const EdgeInsets.all(15),
-                          child: box("add", "Add event"),
+                          child: box("add", "Add event","/add_event"),
                         )),
                         Expanded(
                             child: Padding(
                           padding: const EdgeInsets.all(15.0),
-                          child: box("qr-code", "Scan QR"),
+                          child: box("qr-code", "Scan QR","add_event"),
                         )),
                       ],
                     ),
@@ -72,12 +73,12 @@ class _HomeState extends State<Home> {
                         Expanded(
                             child: Padding(
                           padding: const EdgeInsets.all(15),
-                          child: box("eventlist", "All Events"),
+                          child: box("eventlist", "All Events","add_event"),
                         )),
                         Expanded(
                             child: Padding(
                           padding: const EdgeInsets.all(15.0),
-                          child: box("filter", "Filter Events"),
+                          child: box("filter", "Filter Events","add_event"),
                         )),
                       ],
                     ),
@@ -89,33 +90,39 @@ class _HomeState extends State<Home> {
     );
   }
 
-  Widget box(String assetsname, String stri) {
-    return Container(
-      decoration: BoxDecoration(
-        border: Border.all(color: Theme.of(context).primaryColor, width: 3),
-        borderRadius: BorderRadius.all(Radius.circular(10)),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: Column(
-          children: [
-            Container(
-              height: 50,
-              width: 50,
-              child: SvgPicture.asset(
-                "assets/" + assetsname + ".svg",
-                color: Theme.of(context).primaryColor,
+  Widget box(String assetsname, String stri,String routeName) {
+    return InkWell(
+      onTap: (){
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => Add_event()), );
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          border: Border.all(color: Theme.of(context).primaryColor, width: 3),
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: Column(
+            children: [
+              Container(
+                height: 50,
+                width: 50,
+                child: SvgPicture.asset(
+                  "assets/" + assetsname + ".svg",
+                  color: Theme.of(context).primaryColor,
+                ),
               ),
-            ),
-            SizedBox(
-              height: 05,
-            ),
-            Text(stri,
-                style: GoogleFonts.poppins(
-                    color: Theme.of(context).primaryColor,
-                    fontSize: 17,
-                    fontWeight: FontWeight.w600))
-          ],
+              SizedBox(
+                height: 05,
+              ),
+              Text(stri,
+                  style: GoogleFonts.poppins(
+                      color: Theme.of(context).primaryColor,
+                      fontSize: 17,
+                      fontWeight: FontWeight.w600))
+            ],
+          ),
         ),
       ),
     );
